@@ -8,9 +8,14 @@ const HeaderContainer = styled.header`
    justify-content: space-between;
    width: 100%;
    box-sizing: border-box;
+   gap: 2rem;
+
+   .logo{
+      flex-grow: 2
+   }
 
    img{
-      max-width: 100px
+      max-width: 100px;
    }
 
    .icon {
@@ -26,7 +31,7 @@ const HeaderContainer = styled.header`
 
    .user{
       display:flex;
-      gap: 1rem
+      gap: 1rem;
    }
 `
 
