@@ -10,7 +10,7 @@ import light from "./Styled/Themes/light";
 
 function App() {
 
-  const [theme, setTheme] = useState(light);
+  const [theme, setTheme] = useState(dark);
   
 
   return (
