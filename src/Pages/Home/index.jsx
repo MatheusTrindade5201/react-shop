@@ -24,7 +24,7 @@ const Home = () => {
     useEffect(() => {
         api.get('categories')
         .then((response) => setCategories(response.data))
-    })
+    },[])
 
     return(
         <div>
