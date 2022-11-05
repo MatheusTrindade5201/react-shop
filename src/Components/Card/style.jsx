@@ -3,8 +3,17 @@ import styled from "styled-components";
 const CardContainer = styled.div`
     width: 250px;
     height: 300px;
-    color: #fff;
     margin-bottom: 5rem;
+    transition: .2s;
+
+    .link{
+        text-decoration: none;
+        color: #fff
+    }
+
+    :hover{
+        transform: scale(1.05)
+    }
 
     .card__top{
         display: flex;
@@ -13,7 +22,7 @@ const CardContainer = styled.div`
         background-size: cover;
         background-position: center;
         flex-direction: column;
-        justify-content: space-between
+        justify-content: space-between;
     }
 
     .card__name{

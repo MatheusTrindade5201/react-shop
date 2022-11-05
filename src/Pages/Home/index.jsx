@@ -50,6 +50,7 @@ const Home = () => {
                 <Categories categories={categories}/>
                 <div className="page__products">
                     {products.map(product => <Card 
+                    path={'/'+product.id}
                     image={product.thumbnail}
                     reting={product.rating}
                     name={product.title}
