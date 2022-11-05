@@ -7,5 +7,5 @@ export const getCategories = (props) => {
 
 export const getProducts = (props) => {
     api.get()
-    .then((response) => props(response.data))
+    .then((response) => props(response.data.products))
 }
