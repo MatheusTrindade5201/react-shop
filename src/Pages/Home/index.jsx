@@ -9,7 +9,7 @@ import Categories from "../../Components/Categories"
 import api from "../../Services/axios"
 import Card from "../../Components/Card"
 import { getCategories, getFilteredProducts, getProducts } from "../../services/api"
-import PageContainer, { Loading } from "./style"
+import PageContainer, { Loading } from "../style"
 
 
 const Home = () => {
