@@ -18,7 +18,7 @@ const Home = () => {
     const [ categories, setCategories ] = useState([])
     const [ products , setProducts ] = useState(false) 
     const [ filter, setFilter ] = useState('')
-    const [ limit, setLimit ] = useState(20)
+    const [ limit, setLimit ] = useState(10)
 
     const {theme, setTheme} = useContext(MyContext)
 
@@ -43,8 +43,8 @@ const Home = () => {
                 <Header 
                 themeSwitch={toggle === 'off' ?  <MdDarkMode className="icon" onClick={switchToggle}/> :<MdOutlineDarkMode className="icon" onClick={switchToggle}/> }
                 />
-                <Categories onSelected={value => console.log(value)} categories={categories}/>
-                
+                <Categories categories={categories}/>
+                <span className="loading"></span>
             </div>
         )
     }else{
@@ -53,7 +53,10 @@ const Home = () => {
                 <Header 
                 themeSwitch={toggle === 'off' ?  <MdDarkMode className="icon" onClick={switchToggle}/> :<MdOutlineDarkMode className="icon" onClick={switchToggle}/> }
                 />
-                <Categories value={filter} onSelected={value => setFilter(value)} categories={categories}/>
+                <Categories value={filter} onSelected={value => {
+                    setFilter(value)
+                    setLimit(10)
+                    }} categories={categories}/>
                 <div className="page__products">
                     {products.map(product => <Card 
                     key={product.id}
@@ -65,7 +68,7 @@ const Home = () => {
                     discount={product.price - (product.price * product.discountPercentage / 100)}
                     />)}
                 </div>
-                <button className="loadMore" disabled={limit === 100 ? true : false} onClick={()=>setLimit(limit < 100 ? limit + 20 : limit)}>Load More</button>
+                <button className="loadMore" disabled={limit === 100 ? true : false} onClick={()=>setLimit(limit < 100 ? limit + 10 : limit)}>Load More</button>
             </PageContainer>
         )
         
