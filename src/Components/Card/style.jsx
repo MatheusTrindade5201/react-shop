@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 const CardContainer = styled.div`
-    max-width: 250px;
-    max-height: 300px;
+    width: 250px;
+    height: 300px;
     color: #fff;
+    margin-bottom: 5rem;
 
     .card__top{
         display: flex;

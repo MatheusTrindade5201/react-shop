@@ -9,13 +9,14 @@ import Categories from "../../Components/Categories"
 import api from "../../Services/axios"
 import Card from "../../Components/Card"
 import { getCategories, getProducts } from "../../services/api"
+import PageContainer from "./style"
 
 
 const Home = () => {
 
     const [ toggle, setToggle] = useState('off');
     const [ categories, setCategories ] = useState([])
-    const [ products , setProducts ] = useState() 
+    const [ products , setProducts ] = useState(false) 
 
     const {theme, setTheme} = useContext(MyContext)
 
@@ -26,17 +27,41 @@ const Home = () => {
 
     useEffect(() => {
         getCategories(setCategories);
-        getProducts()
+        getProducts(setProducts)
     },[])
 
-    return(
-        <div>
-            <Header 
-            themeSwitch={toggle === 'off' ?  <MdDarkMode className="icon" onClick={switchToggle}/> :<MdOutlineDarkMode className="icon" onClick={switchToggle}/> }
-            />
-            <Categories categories={categories}/>
-        </div>
-    )
+    if(!products){
+
+        return(
+            <div>
+                <Header 
+                themeSwitch={toggle === 'off' ?  <MdDarkMode className="icon" onClick={switchToggle}/> :<MdOutlineDarkMode className="icon" onClick={switchToggle}/> }
+                />
+                <Categories categories={categories}/>
+                
+            </div>
+        )
+    }else{
+        return(
+            <PageContainer>
+                <Header 
+                themeSwitch={toggle === 'off' ?  <MdDarkMode className="icon" onClick={switchToggle}/> :<MdOutlineDarkMode className="icon" onClick={switchToggle}/> }
+                />
+                <Categories categories={categories}/>
+                <div className="page__products">
+                    {products.map(product => <Card 
+                    image={product.thumbnail}
+                    reting={product.rating}
+                    name={product.title}
+                    price={product.price}
+                    discount={product.price - (product.price * product.discountPercentage / 100)}
+                    />)}
+                </div>
+            </PageContainer>
+        )
+        
+       
+    }
 }
 
 export default Home
