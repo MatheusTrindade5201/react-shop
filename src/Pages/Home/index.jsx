@@ -9,7 +9,7 @@ import Categories from "../../Components/Categories"
 import api from "../../Services/axios"
 import Card from "../../Components/Card"
 import { getCategories, getFilteredProducts, getProducts } from "../../services/api"
-import PageContainer from "./style"
+import PageContainer, { Loading } from "./style"
 
 
 const Home = () => {
@@ -46,6 +46,9 @@ const Home = () => {
                 themeSwitch={toggle === 'off' ?  <MdDarkMode className="icon" onClick={switchToggle}/> :<MdOutlineDarkMode className="icon" onClick={switchToggle}/> }
                 />
                 <Categories categories={categories}/>
+                <Loading>
+                    <span></span>
+                </Loading>
             </div>
         )
     }else{
@@ -61,7 +64,7 @@ const Home = () => {
                 <div className="page__products">
                     {products.map(product => <Card 
                     key={product.id}
-                    path={'/'+product.id}
+                    path={'/product/'+product.id}
                     image={product.thumbnail}
                     rating={product.rating}
                     name={product.title}

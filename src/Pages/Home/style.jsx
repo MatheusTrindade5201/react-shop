@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const PageContainer = styled.div`
     display: flex;
@@ -32,3 +32,32 @@ const PageContainer = styled.div`
 `
 
 export default PageContainer
+
+export const rotate = keyframes`
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+`
+
+export const Loading = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+
+    span{
+        width: 20px;
+        height: 20px;
+        display: block;
+        animation: ${rotate} 2s linear infinite;
+        padding: 1rem;
+        font-size: 1.2rem;
+        border-top: 1px #fff solid;
+        border-radius: 50%;
+    }
+    
+`
