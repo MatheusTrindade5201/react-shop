@@ -11,7 +11,7 @@ const Card = (props) => {
             <div className="card__bottom">
                 <div>
                     <p className="original_price">$ {props.price}</p>
-                    <p>$ {props.discount}</p>
+                    <p>$ {props.discount.toFixed(2)}</p>
                 </div>
                 <FaShoppingCart className='icon'/>
             </div>
