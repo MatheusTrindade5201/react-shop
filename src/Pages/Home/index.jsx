@@ -7,12 +7,15 @@ import dark from "../../Styled/Themes/dark"
 import { MyContext } from "../../Context/MyContext"
 import Categories from "../../Components/Categories"
 import api from "../../Services/axios"
+import Card from "../../Components/Card"
+import { getCategories, getProducts } from "../../services/api"
 
 
 const Home = () => {
 
     const [ toggle, setToggle] = useState('off');
     const [ categories, setCategories ] = useState([])
+    const [ products , setProducts ] = useState() 
 
     const {theme, setTheme} = useContext(MyContext)
 
@@ -22,8 +25,8 @@ const Home = () => {
     }
 
     useEffect(() => {
-        api.get('categories')
-        .then((response) => setCategories(response.data))
+        getCategories(setCategories);
+        getProducts()
     },[])
 
     return(
