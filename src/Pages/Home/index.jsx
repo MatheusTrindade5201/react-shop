@@ -8,7 +8,7 @@ import { MyContext } from "../../Context/MyContext"
 import Categories from "../../Components/Categories"
 import api from "../../Services/axios"
 import Card from "../../Components/Card"
-import { getCategories, getProducts } from "../../services/api"
+import { getCategories, getFilteredProducts, getProducts } from "../../services/api"
 import PageContainer from "./style"
 
 
@@ -17,6 +17,7 @@ const Home = () => {
     const [ toggle, setToggle] = useState('off');
     const [ categories, setCategories ] = useState([])
     const [ products , setProducts ] = useState(false) 
+    const [ filter, setFilter ] = useState('')
 
     const {theme, setTheme} = useContext(MyContext)
 
@@ -27,8 +28,12 @@ const Home = () => {
 
     useEffect(() => {
         getCategories(setCategories);
-        getProducts(setProducts)
-    },[])
+        if(filter === ''){
+            getProducts(setProducts)
+        }else{
+            getFilteredProducts(setProducts, filter)
+        }
+    },[filter])
 
     if(!products){
 
@@ -37,7 +42,7 @@ const Home = () => {
                 <Header 
                 themeSwitch={toggle === 'off' ?  <MdDarkMode className="icon" onClick={switchToggle}/> :<MdOutlineDarkMode className="icon" onClick={switchToggle}/> }
                 />
-                <Categories categories={categories}/>
+                <Categories onSelected={value => console.log(value)} categories={categories}/>
                 
             </div>
         )
@@ -47,12 +52,13 @@ const Home = () => {
                 <Header 
                 themeSwitch={toggle === 'off' ?  <MdDarkMode className="icon" onClick={switchToggle}/> :<MdOutlineDarkMode className="icon" onClick={switchToggle}/> }
                 />
-                <Categories categories={categories}/>
+                <Categories value={filter} onSelected={value => setFilter(value)} categories={categories}/>
                 <div className="page__products">
                     {products.map(product => <Card 
+                    key={product.id}
                     path={'/'+product.id}
                     image={product.thumbnail}
-                    reting={product.rating}
+                    rating={product.rating}
                     name={product.title}
                     price={product.price}
                     discount={product.price - (product.price * product.discountPercentage / 100)}
