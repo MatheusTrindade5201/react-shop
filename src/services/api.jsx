@@ -5,8 +5,8 @@ export const getCategories = (props) => {
     .then((response) => props(response.data))
 }
 
-export const getProducts = (props) => {
-    api.get()
+export const getProducts = (props, limit) => {
+    api.get('?limit=' + limit)
     .then((response) => props(response.data.products))
 }
 

@@ -18,6 +18,7 @@ const Home = () => {
     const [ categories, setCategories ] = useState([])
     const [ products , setProducts ] = useState(false) 
     const [ filter, setFilter ] = useState('')
+    const [ limit, setLimit ] = useState(20)
 
     const {theme, setTheme} = useContext(MyContext)
 
@@ -29,11 +30,11 @@ const Home = () => {
     useEffect(() => {
         getCategories(setCategories);
         if(filter === ''){
-            getProducts(setProducts)
+            getProducts(setProducts, limit)
         }else{
             getFilteredProducts(setProducts, filter)
         }
-    },[filter])
+    },[filter, limit])
 
     if(!products){
 
@@ -64,6 +65,7 @@ const Home = () => {
                     discount={product.price - (product.price * product.discountPercentage / 100)}
                     />)}
                 </div>
+                <button className="loadMore" disabled={limit === 100 ? true : false} onClick={()=>setLimit(limit < 100 ? limit + 20 : limit)}>Load More</button>
             </PageContainer>
         )
         
