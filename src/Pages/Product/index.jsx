@@ -1,21 +1,28 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
+import { useParams } from "react-router-dom";
 import Header from "../../Components/Header"
 import { MyContext } from "../../Context/MyContext";
+import { getSingleProducts } from "../../services/api";
 import PageContainer, { Loading } from "../style";
 
 const ProductPage = () => {
     
-    const [ toggle, setToggle] = useState('off');
+    const { id } = useParams()
 
+    const [ toggle, setToggle] = useState('off');
     const {theme, setTheme} = useContext(MyContext);
-    const [ product, setProduct ] = useState(false)
+    const [ product, setProduct ] = useState(false);
 
 
     const switchToggle = () => {
         setToggle(toggle === 'off' ? 'on' : 'off');
         setTheme(theme === light ? dark : light)
     }
+
+    useEffect(() => {
+        getSingleProducts(setProduct, id)
+    },[])
 
     if(!product){
 
