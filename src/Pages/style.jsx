@@ -61,3 +61,7 @@ export const Loading = styled.div`
     }
     
 `
+
+export const ProductInfoContainer = styled.div`
+    margin: 2rem 2vw
+`
