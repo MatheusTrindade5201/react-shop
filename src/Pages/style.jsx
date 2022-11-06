@@ -4,6 +4,7 @@ const PageContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
+    box-sizing: border-box;
 
     width: 100vw; 
     .page__products{

@@ -47,6 +47,15 @@ const ProductGalleryContainer = styled.div`
 .gallery::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+@media screen and (max-width: 520px) {
+    width: 100%;
+    .main__image{
+       width: 100%;
+       height: 100%
+    }
+}
+
 `
 
 export default ProductGalleryContainer
