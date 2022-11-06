@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
 import { NavLink, useParams } from "react-router-dom";
 import Header from "../../Components/Header"
+import ProductDetails from "../../Components/ProductDetails";
 import ProductGallery from "../../Components/ProductGallery";
 import ReturnButton from "../../Components/ReturnButton";
 import { MyContext } from "../../Context/MyContext";
@@ -48,11 +49,20 @@ const ProductPage = () => {
                 />
                 <ProductInfoContainer>
                     <ReturnButton/>
-                    <h1 className="product__name">{product.title}</h1>
-                    <ProductGallery 
-                    firstImage={product.images[0]}
-                    gallery={product.images}
-                    />
+                    <h1 className="product__name">{product.title} <span>{product.rating}</span></h1>
+                    <div className="details">
+                        <ProductGallery 
+                        firstImage={product.images[0]}
+                        gallery={product.images}
+                        />
+                        <ProductDetails
+                        description={product.description}
+                        brand={product.brand}
+                        stock={product.stock}
+                        price={product.price}
+                        discount={product.price - (product.price * product.discountPercentage / 100)}
+                        />
+                    </div>
                 </ProductInfoContainer>
             </PageContainer>
         )

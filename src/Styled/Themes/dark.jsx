@@ -4,6 +4,7 @@ export default {
         text: '#fff',
         text_hover: '#D9D9D9',
         primary: '#2c2c2c',
-        secondary: '#D9D9D9'
+        secondary: '#D9D9D9',
+        opacity: '#D9D9D920'
     }
 }

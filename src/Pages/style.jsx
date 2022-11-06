@@ -66,8 +66,29 @@ export const ProductInfoContainer = styled.div`
     margin: 2rem 2vw;
     
     .product__name{
+        display: flex;
+        gap: 5rem;
+        align-items: center;
         padding: 1rem 0;
         color: ${props => props.theme.settings.text}
+    }
+
+    .product__name span {
+        font-size: 1.2rem;
+        background-color: ${props => props.theme.settings.opacity};
+        padding: .5rem;
+        border-radius: 8px 0
+    }
+
+    .details {
+        display: flex;
+        gap: .5rem
+    }
+
+    @media screen and (max-width: 900px){
+        .details{
+            flex-direction: column
+        }
     }
 
 `
