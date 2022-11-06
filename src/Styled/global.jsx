@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import FontStyles from "./fontStyles";
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -7,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
         }
     
     body{
+        font-family: 'Nunita', sans-serif;
         background-color: ${porps => porps.theme.settings.primary}
     }
 `
