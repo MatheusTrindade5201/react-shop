@@ -9,7 +9,7 @@ const ProductGallery = (props) => {
         <ProductGalleryContainer>
             <img className="main__image" src={currentImage} />
             <div className="gallery">
-                {props.gallery.map(image => <img src={image} onClick={event => setCurrentImage(event.target.src)} /> )}
+                {props.gallery.map(image => <img src={image} key={image} onClick={event => setCurrentImage(event.target.src)} /> )}
             </div>
         </ProductGalleryContainer>
     )

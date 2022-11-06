@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Header from "../../Components/Header"
 import ProductGallery from "../../Components/ProductGallery";
+import ReturnButton from "../../Components/ReturnButton";
 import { MyContext } from "../../Context/MyContext";
 import { getSingleProducts } from "../../services/api";
 import dark from "../../Styled/Themes/dark";
@@ -46,6 +47,8 @@ const ProductPage = () => {
                 themeSwitch={toggle === 'off' ?  <MdDarkMode className="icon" onClick={switchToggle}/> :<MdOutlineDarkMode className="icon" onClick={switchToggle}/> }
                 />
                 <ProductInfoContainer>
+                    <ReturnButton/>
+                    <h1 className="product__name">{product.title}</h1>
                     <ProductGallery 
                     firstImage={product.images[0]}
                     gallery={product.images}
