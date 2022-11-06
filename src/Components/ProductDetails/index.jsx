@@ -18,7 +18,7 @@ const ProductDetails = (props) => {
             <div>
                 <h2>Price:</h2>
                 <p className="price">$ {props.price}</p>
-                <p>$ {props.discount}</p>
+                <p>$ {props.discount.toFixed(2)}</p>
             </div>
         </ProductDetailsContainer>
     )
