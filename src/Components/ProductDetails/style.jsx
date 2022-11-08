@@ -19,10 +19,6 @@ const ProductDetailsContainer = styled.div`
         text-decoration: line-through;
         color: #C2C5D0  
     }
-
-    @media screen and (max-width: 900px){
-        flex-direction: column
-    }
 `
 
 export default ProductDetailsContainer

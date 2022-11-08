@@ -67,8 +67,10 @@ const ProductPage = () => {
                         />
                     </div>
                     <Related 
-                    relatedProducts={related.map(product => <Card 
+                        relatedProducts={related.map(product => <Card 
                         key={product.id}
+                        cardValue={JSON.stringify(product)}
+                        addToCart={value => {value != undefined ? sessionStorage.setItem(product.id, value): ''}}    
                         path={'/product/'+product.id}
                         image={product.thumbnail}
                         rating={product.rating}

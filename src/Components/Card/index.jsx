@@ -10,14 +10,15 @@ const Card = (props) => {
                     <p className="card__rating">{props.rating}</p>
                     <h2 className="card__name">{props.name}</h2>
                 </div>
+            </NavLink>
                 <div className="card__bottom">
                     <div>
                         <p className="original_price">$ {props.price}</p>
                         <p>$ {props.discount.toFixed(2)}</p>
                     </div>
-                    <FaShoppingCart className='icon'/>
+                    <button value={props.cardValue} onClick={event => props.addToCart(event.target.parentNode.value)}><FaShoppingCart className='icon' /></button>
+                    
                 </div>
-            </NavLink>
         </CardContainer>
     )
 }
