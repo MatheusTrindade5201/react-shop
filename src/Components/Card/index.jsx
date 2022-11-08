@@ -1,8 +1,13 @@
+import { useContext } from "react"
 import { FaShoppingCart } from "react-icons/fa"
 import { NavLink } from "react-router-dom"
+import { MyContext } from "../../Context/MyContext"
 import CardContainer from "./style"
 
 const Card = (props) => {
+
+    const { setCart } = useContext(MyContext) 
+
     return (
         <CardContainer>
             <NavLink to={props.path} className='link'>
@@ -16,7 +21,8 @@ const Card = (props) => {
                         <p className="original_price">$ {props.price}</p>
                         <p>$ {props.discount.toFixed(2)}</p>
                     </div>
-                    <button value={props.cardValue} onClick={event => props.addToCart(event.target.parentNode.value)}><FaShoppingCart className='icon' /></button>
+                    <button value={props.cardValue} onClick={event => {props.addToCart(event.target.parentNode.value);
+                    setCart(sessionStorage.length)}}><FaShoppingCart className='icon' /></button>
                     
                 </div>
         </CardContainer>

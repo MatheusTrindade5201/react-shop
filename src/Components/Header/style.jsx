@@ -33,6 +33,21 @@ const HeaderContainer = styled.header`
       display:flex;
       gap: 1rem;
    }
+
+   .cart {
+      display: flex;
+      position: relative
+   }
+   
+   .cart p {
+      background-color: red;
+      padding: .2rem;
+      border-radius: 50% 60%;
+      position:absolute;
+      top: -15px;
+      right:-9px;
+      color: #fff
+   }
 `
 
 export default HeaderContainer

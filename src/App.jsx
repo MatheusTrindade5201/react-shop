@@ -11,10 +11,10 @@ import light from "./Styled/Themes/light";
 function App() {
 
   const [theme, setTheme] = useState(dark);
-  
+  const [ cart, setCart ] = useState(sessionStorage.length)
 
   return (
-    <MyContextProvider value={{theme, setTheme}}>
+    <MyContextProvider value={{theme, setTheme, cart, setCart}}>
       <ThemeProvider theme={theme} >
         <BrowserRouter>
           <AppRouter />
