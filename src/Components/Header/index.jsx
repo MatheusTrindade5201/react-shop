@@ -4,6 +4,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { CgProfile } from 'react-icons/cg'
 import { useContext } from 'react'
 import { MyContext } from '../../Context/MyContext'
+import { NavLink } from 'react-router-dom'
 
 
 
@@ -17,10 +18,10 @@ const Header = (props) => {
             <img src={logo} />
             </div>
             <div className='user'>
-                <div className='cart'>
+                <NavLink to={'/cart'} className='cart'>
                     <FaShoppingCart  className='icon'/>
                     <p>{cart > 0 ? cart : ''}</p>
-                </div>
+                </NavLink>
                 <CgProfile className='icon'/>
             </div>
             {props.themeSwitch}
