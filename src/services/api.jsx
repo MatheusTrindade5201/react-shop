@@ -27,3 +27,13 @@ export const getRelated = (related, id) => {
     .then((response) => related(response.data.products))
     )
 }
+
+export const fillCart = () => {
+    let products = [];
+    for(let i = 0; i < sessionStorage.length; i++){
+       let productKey = sessionStorage.key(i);
+       products.push(JSON.parse(sessionStorage.getItem(productKey)))
+    }
+
+    return products
+}
