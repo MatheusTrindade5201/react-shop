@@ -3,7 +3,7 @@ import ProductListContainer from "./stye"
 const ProductCartList = (props) => {
     return(
         <ProductListContainer>
-            {props.products.map(product => <div className="product">
+            {props.products.map(product => <div key={product.title} className="product">
                 <img src={product.thumbnail} />
                 <div className="infos">
                     <h2>{product.title}</h2>
