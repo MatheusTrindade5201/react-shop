@@ -28,12 +28,17 @@ export const getRelated = (related, id) => {
     )
 }
 
-export const fillCart = () => {
+export const fillCart = (props) => {
     let products = [];
+    let total = 0
     for(let i = 0; i < sessionStorage.length; i++){
        let productKey = sessionStorage.key(i);
-       products.push(JSON.parse(sessionStorage.getItem(productKey)))
+       let iten = JSON.parse(sessionStorage.getItem(productKey))
+       products.push(iten);
+       total += iten.price - (iten.price * iten.discountPercentage / 100).toFixed(2)
     }
+
+    props(total)
 
     return products
 }
