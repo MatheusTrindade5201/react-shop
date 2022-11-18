@@ -1,4 +1,6 @@
 import ProductListContainer from "./stye"
+import { AiFillCloseCircle } from "react-icons/ai"
+
 
 const ProductCartList = (props) => {
     return(
@@ -9,6 +11,7 @@ const ProductCartList = (props) => {
                     <h2>{product.title}</h2>
                     <p>$ {(product.price - (product.price * product.discountPercentage / 100)).toFixed(2)}</p>
                 </div>
+                <AiFillCloseCircle className="delete"/>
             </div>)}
         </ProductListContainer>
     )
