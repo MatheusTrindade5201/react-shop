@@ -12,7 +12,7 @@ import PageContainer, { Loading } from "../style";
 const CartPage = () => {
 
     const [ toggle, setToggle] = useState('off');
-    const {theme, setTheme} = useContext(MyContext);
+    const {theme, setTheme, cart, setCart} = useContext(MyContext);
     const [products, setProducts] = useState(false);
     const [total, setTotal] = useState(0);
 
@@ -32,7 +32,7 @@ const CartPage = () => {
     
     useEffect(() => {
         setProducts(fillCart(setTotal))
-    },[])
+    },[cart])
 
    if(!products){
         return (
@@ -52,7 +52,7 @@ const CartPage = () => {
                 <Header 
                 themeSwitch={toggle === 'off' ?  <MdDarkMode className="icon" onClick={switchToggle}/> :<MdOutlineDarkMode className="icon" onClick={switchToggle}/> }
                 />
-                <ProductCartList products={products} />
+                <ProductCartList products={products} updateCart={setCart}/>
                 <CartAmount total={total.toFixed(2)} />
         </PageContainer>
         )

@@ -14,7 +14,9 @@ const ProductListContainer = styled.div`
         color: ${props => props.theme.settings.text};
         justify-content: space-between;
         
+    
         .delete{
+            color: ${props => props.theme.settings.text};
             align-self: center;
             font-size: 1.5rem;
             transition: .2s;
