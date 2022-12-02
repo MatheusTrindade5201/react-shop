@@ -7,6 +7,7 @@ import CardContainer from "./style"
 const Card = (props) => {
 
     const { setCart } = useContext(MyContext) 
+    
 
     return (
         <CardContainer>
@@ -22,7 +23,7 @@ const Card = (props) => {
                         <p>$ {props.discount.toFixed(2)}</p>
                     </div>
                     <button value={props.cardValue} onClick={event => {props.addToCart(event.target.parentNode.value);
-                    setCart(sessionStorage.length)}}><FaShoppingCart className='icon' /></button>
+                    setCart(sessionStorage.length)}}><FaShoppingCart onClick={event => {props.addToCart(event.target.parentNode.parentNode.value)}} className='icon' /></button>
                     
                 </div>
         </CardContainer>
