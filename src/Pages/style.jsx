@@ -93,3 +93,21 @@ export const ProductInfoContainer = styled.div`
     }
 
 `
+
+export const Return = styled.div`
+    padding: 2rem 5vw;
+
+    .return__button{
+        text-decoration: none;
+        color: ${props => props.theme.settings.text};
+        border: 1px solid ${props => props.theme.settings.text};
+        padding: .5rem 1rem;
+        transition: .2s
+    }
+
+    .return__button:hover{
+        color: ${props => props.theme.settings.primary};
+        border: 1px solid ${props => props.theme.settings.primary};
+        background-color: ${props => props.theme.settings.text}
+    }
+`

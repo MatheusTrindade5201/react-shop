@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 import CartAmount from "../../Components/CartAmount";
 import Header from "../../Components/Header";
 import ProductCartList from "../../Components/ProductIten";
@@ -7,7 +8,7 @@ import { MyContext } from "../../Context/MyContext";
 import { fillCart } from "../../services/api";
 import dark from "../../Styled/Themes/dark";
 import light from "../../Styled/Themes/light";
-import PageContainer, { Loading } from "../style";
+import PageContainer, { Loading, Return } from "../style";
 
 const CartPage = () => {
 
@@ -52,6 +53,9 @@ const CartPage = () => {
                 <Header 
                 themeSwitch={toggle === 'off' ?  <MdDarkMode className="icon" onClick={switchToggle}/> :<MdOutlineDarkMode className="icon" onClick={switchToggle}/> }
                 />
+                <Return>
+                    <NavLink className='return__button' to={'/'}>Return</NavLink>
+                </Return>
                 <ProductCartList products={products} updateCart={setCart}/>
                 <CartAmount total={total.toFixed(2)} />
         </PageContainer>
