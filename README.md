@@ -6,7 +6,7 @@ Esse é um projeto desenvolvido com React.js e styled-components, consumindo a [
 - [x] Ver uma página com informações detalhadas do produto.
 - [x] Troca de tema, claro e escuro.
 - [x] incluir itens no carrinho.
-- [ ] Excluir itens do carrinho (Em desenvlvimento).
+- [x] Excluir itens do carrinho.
 - [x] Ver e remover itens do carrinho.
 - [x] Responsivo 
 
